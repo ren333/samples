@@ -3,6 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
+        <!-- Region Definitions -->
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto"/>
             <ColumnDefinition Width="Auto"/>
@@ -13,6 +14,7 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
+        <!-- Endregion -->
         
         <Button Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Content="Hello Wix World!" Click="ButtonBase_OnClick"/>
         <Button Grid.Row="1" Grid.Column="1" Content="Hello Wix World!!!" Click="ButtonBase_OnClick"/>
