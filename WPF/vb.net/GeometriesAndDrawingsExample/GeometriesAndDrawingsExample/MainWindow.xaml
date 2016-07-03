@@ -1,0 +1,210 @@
+﻿<Window x:Class="MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="MainWindow" Height="488" Width="735">
+	
+	<Window.Resources>
+		<GeometryGroup x:Key="Geometry">
+			<RectangleGeometry Rect="0,0 100,100"></RectangleGeometry>
+			<EllipseGeometry Center="150,150" RadiusX="35" RadiusY="25"></EllipseGeometry>
+		</GeometryGroup>
+
+		<GeometryGroup x:Key="OverlappingGeometry">
+			<RectangleGeometry Rect="0,0 100,100"></RectangleGeometry>
+			<EllipseGeometry Center="50,50" RadiusX="35" RadiusY="25"></EllipseGeometry>
+		</GeometryGroup>
+		
+		<GeometryGroup x:Key="ClipGeometry" FillRule="Nonzero">
+			<EllipseGeometry RadiusX="75" RadiusY="50" Center="100,150"></EllipseGeometry>
+			<EllipseGeometry RadiusX="100" RadiusY="25" Center="200,150"></EllipseGeometry>
+			<EllipseGeometry RadiusX="75" RadiusY="130" Center="140,140"></EllipseGeometry>
+		</GeometryGroup>
+
+	</Window.Resources>
+	
+	<TabControl >
+		<TabItem Header="Geometry group">
+			<Canvas>
+				
+				<Path Fill="Yellow" Stroke="Blue" Margin="5" Canvas.Top="10" Canvas.Left="10">
+					<Path.Data>
+						<GeometryGroup>
+							<RectangleGeometry Rect="0,0 100,100"></RectangleGeometry>
+							<EllipseGeometry Center="150,150" RadiusX="35" RadiusY="25"></EllipseGeometry>
+						</GeometryGroup>
+					</Path.Data>
+				</Path>
+				
+				<Path Fill="YellowGreen" Stroke="Green" Margin="5" Canvas.Top="10" Canvas.Left="222" Data="{StaticResource Geometry}"></Path>
+				
+				<!-- Hole inside of rectangle, display text under it -->
+				<TextBlock Canvas.Top="249" Canvas.Left="32" FontSize="25" FontWeight="Bold">Hello there!</TextBlock>
+				<Path Fill="Purple" Stroke="Maroon" Margin="5" Canvas.Top="213" Canvas.Left="10" Data="{StaticResource OverlappingGeometry}"></Path>
+			</Canvas>
+		</TabItem>
+		
+		<!-- 2ND tab - Combined Geometry -->
+		<TabItem Header="CombinedGeometry">
+			<Canvas>
+				<Path Fill="Tomato" Stroke="AliceBlue" Margin="5" Canvas.Left="1" Canvas.Top="1">
+					<Path.Data>
+						<CombinedGeometry GeometryCombineMode="Union">
+							<CombinedGeometry.Geometry1>
+								<RectangleGeometry Rect="0,0 100,100"></RectangleGeometry>
+							</CombinedGeometry.Geometry1>
+							<CombinedGeometry.Geometry2>
+								<EllipseGeometry Center="85,50" RadiusX="65" RadiusY="35"></EllipseGeometry>
+							</CombinedGeometry.Geometry2>
+						</CombinedGeometry>
+					</Path.Data>
+				</Path>
+
+				<Path Fill="MediumSpringGreen" Stroke="AliceBlue" Margin="5" Canvas.Left="1" Canvas.Top="106">
+					<Path.Data>
+						<CombinedGeometry GeometryCombineMode="Intersect">
+							<CombinedGeometry.Geometry1>
+								<RectangleGeometry Rect="0,0 100,100"></RectangleGeometry>
+							</CombinedGeometry.Geometry1>
+							<CombinedGeometry.Geometry2>
+								<EllipseGeometry Center="85,50" RadiusX="65" RadiusY="35"></EllipseGeometry>
+							</CombinedGeometry.Geometry2>
+						</CombinedGeometry>
+					</Path.Data>
+				</Path>
+
+				<Path Fill="Peru" Stroke="AliceBlue" Margin="5" Canvas.Left="1" Canvas.Top="198">
+					<Path.Data>
+						<CombinedGeometry GeometryCombineMode="Exclude">
+							<CombinedGeometry.Geometry1>
+								<RectangleGeometry Rect="0,0 100,100"></RectangleGeometry>
+							</CombinedGeometry.Geometry1>
+							<CombinedGeometry.Geometry2>
+								<EllipseGeometry Center="85,50" RadiusX="65" RadiusY="35"></EllipseGeometry>
+							</CombinedGeometry.Geometry2>
+						</CombinedGeometry>
+					</Path.Data>
+				</Path>
+
+				<Path Fill="Violet" Stroke="AliceBlue" Margin="5" Canvas.Left="1" Canvas.Top="306">
+					<Path.Data>
+						<CombinedGeometry GeometryCombineMode="Xor">
+							<CombinedGeometry.Geometry1>
+								<RectangleGeometry Rect="0,0 100,100"></RectangleGeometry>
+							</CombinedGeometry.Geometry1>
+							<CombinedGeometry.Geometry2>
+								<EllipseGeometry Center="85,50" RadiusX="65" RadiusY="35"></EllipseGeometry>
+							</CombinedGeometry.Geometry2>
+						</CombinedGeometry>
+					</Path.Data>
+				</Path>
+				
+				<TextBlock FontSize="24" Canvas.Left="196" Canvas.Top="346">XOR</TextBlock>
+				<TextBlock FontSize="24" Canvas.Left="196" Canvas.Top="37">Union</TextBlock>
+				<TextBlock FontSize="24" Canvas.Left="196" Canvas.Top="143">Intersect</TextBlock>
+				<TextBlock FontSize="24" Canvas.Left="196" Canvas.Top="236">Exclude</TextBlock>
+				
+				<!-- CombinedGeometries - NO sign -->
+				<Path Fill="DarkRed" Stroke="Beige" Canvas.Left="349" Canvas.Top="6">
+					<Path.Data>
+						<CombinedGeometry GeometryCombineMode="Union">
+							<CombinedGeometry.Geometry1>
+								<!-- Combine 2 ellipses to form the outside circle -->
+								<CombinedGeometry GeometryCombineMode="Exclude">
+									<CombinedGeometry.Geometry1>
+										<EllipseGeometry Center="50,50" RadiusX="50" RadiusY="50"></EllipseGeometry>
+									</CombinedGeometry.Geometry1>
+									<CombinedGeometry.Geometry2>
+										<EllipseGeometry Center="50,50" RadiusX="40" RadiusY="40"></EllipseGeometry>
+									</CombinedGeometry.Geometry2>
+								</CombinedGeometry>
+							</CombinedGeometry.Geometry1>
+							
+							<!-- Draw slash through the middle of the shape -->
+							<CombinedGeometry.Geometry2>
+								<RectangleGeometry Rect="44,5 10,90">
+									<RectangleGeometry.Transform>
+										<RotateTransform Angle="45" CenterX="50" CenterY="50"></RotateTransform>
+									</RectangleGeometry.Transform> 
+								</RectangleGeometry>
+							</CombinedGeometry.Geometry2>
+						</CombinedGeometry>
+					</Path.Data>
+				</Path>
+			</Canvas>
+		</TabItem>
+		
+		<!-- 3RD tab - Curves and Lines -->
+		<TabItem Header="Curves and Lines">
+			<Canvas>
+				
+				<!-- Right-angle triangle -->
+				<Path Stroke="Blue">
+					<Path.Data>
+						<PathGeometry>
+							<PathFigure IsClosed="True" StartPoint="10,100">
+								<LineSegment Point="100,100" ></LineSegment>
+								<LineSegment Point="100,50" ></LineSegment>
+							</PathFigure>
+						</PathGeometry>
+					</Path.Data>
+				</Path>
+				
+				<!-- Arc segment -->
+				<Path Stroke="green" StrokeThickness="3" Canvas.Top="50" Canvas.Left="120">
+					<Path.Data>
+						<PathGeometry>
+							<PathFigure IsClosed="False" StartPoint="10,100">
+								<ArcSegment Point="250,150" Size="200,300"></ArcSegment>
+							</PathFigure>
+						</PathGeometry>
+					</Path.Data>
+				</Path>
+				
+				<!-- Bezier curve -(3 PARTS) - also has a dashed line and circles for control points -->
+				<Path Stroke="Pink" StrokeThickness="5" Canvas.Top="220">
+					<Path.Data>
+						<PathGeometry>
+							<PathFigure StartPoint="10,10">
+								<BezierSegment Point1="130,30" Point2="40,140" Point3="150,150"></BezierSegment>
+							</PathFigure>
+						</PathGeometry>
+					</Path.Data>
+				</Path>
+				
+				<!-- Bezier curve dashed lines -->
+				<Path Stroke="Green" StrokeThickness="2" StrokeDashArray="5 2" Canvas.Top="220">
+					<Path.Data>
+						<GeometryGroup>
+							<LineGeometry StartPoint="10,10" EndPoint="130,30"></LineGeometry>
+							<LineGeometry StartPoint="40,140" EndPoint="150,150"></LineGeometry>
+						</GeometryGroup>
+					</Path.Data>
+				</Path>
+				
+				<!-- Bezier curve control points -->
+				<Path Stroke="Red" StrokeThickness="8" Canvas.Top="220">
+					<Path.Data>
+						<GeometryGroup>
+							<EllipseGeometry Center="130,30"></EllipseGeometry>
+							<EllipseGeometry Center="40,140"></EllipseGeometry>
+						</GeometryGroup>
+					</Path.Data>
+				</Path>
+			</Canvas>
+		</TabItem>
+		
+		<!-- 4TH tab - Clipping -->
+		<TabItem Header="Clipping">
+			<Grid >
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition></ColumnDefinition>
+					<ColumnDefinition></ColumnDefinition>
+				</Grid.ColumnDefinitions>
+				
+				<Button Clip="{StaticResource ClipGeometry}">A button</Button>
+				<Image Grid.Column="1" Clip="{StaticResource ClipGeometry}" Stretch="Fill" Source=".\Images\393_9416_1.jpg"></Image>
+			</Grid>
+		</TabItem>
+		
+	</TabControl>
+</Window>

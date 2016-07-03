@@ -1,0 +1,26 @@
+﻿<Window x:Class="LayoutContainersExample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:Dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+		xmlns:Dxg="http://schemas.devexpress.com/winfx/2008/xaml/grid"
+        Title="MainWindow" Height="350" Width="525">
+	
+    <Window.Resources>
+        <Style x:Key="myStyle" TargetType="{x:Type Button}">
+            <Setter Property="Background" Value="Blue"/>
+        </Style>
+    </Window.Resources>
+    
+	<DockPanel LastChildFill="True">
+		<!-- At the bottom, unless there are no more controls -->
+		<StackPanel DockPanel.Dock="Bottom" HorizontalAlignment="Center" Orientation="Horizontal" Background="Black">
+			<Button Style="{StaticResource myStyle}" Margin="10,10,2,10" Padding="3" Click="Button_Click">Show Grid layout example</Button>
+			<Button Margin="2,10,2,10" Padding="3" Click="Button_Click_1">Double Split Window</Button>
+			<Button Margin="2,10,2,10" Padding="3" Click="Button_Click_2">Canvas Window</Button>
+			<Button Margin="2,10,2,10" Padding="3" Click="Button_Click_3">Ink Canvas Window</Button>
+			<!--<Dxg:GridControl x:Name="blah" />-->
+		</StackPanel>
+		
+		<TextBox DockPanel.Dock="top" Margin="10" Height="135.04">This is a test</TextBox>
+	</DockPanel>
+</Window>

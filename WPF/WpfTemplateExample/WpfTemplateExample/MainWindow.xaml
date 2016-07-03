@@ -1,0 +1,11 @@
+﻿<Window x:Class="WpfTemplateExample.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" 
+        Loaded="MainWindow_OnLoaded"
+        Height="600" Width="800" >
+    <Grid>
+        <ContentControl x:Name="contentControlTemplatesExample"/>
+        
+    </Grid>
+</Window>
