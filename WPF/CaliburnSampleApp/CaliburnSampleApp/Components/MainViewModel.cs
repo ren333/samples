@@ -1,3 +1,5 @@
+using Autofac;
+using CaliburnSampleApp.Autofac;
 using CaliburnSampleApp.Main;
 
 namespace CaliburnSampleApp.Components
@@ -18,6 +20,11 @@ namespace CaliburnSampleApp.Components
             _dataModel = dataModel;
             _dataModel.Message = "Initial Message.";
             _v1ViewModel = v1ViewModel;
+
+            // Initialise value of randomdata to something;
+            var rD = AppBootstrapper.Container.Resolve<RandomData>();
+            rD.Name = "Main -> Random";
+            rD.Number = 22;
         }
 
         public V1ViewModel V1ViewModel

@@ -53,10 +53,12 @@ namespace CaliburnSampleApp.Autofac
             CreateEventAggregator = () => new EventAggregator();
 
             var builder = new ContainerBuilder();
-            builder.RegisterModule(new MainAutofacModule());
+            builder.RegisterModule(new MainAutofacModule()); // Register the autofac module; user specified.
 
             builder.Register(c => CreateWindowManager()).InstancePerLifetimeScope();
             builder.Register(c => CreateEventAggregator()).InstancePerLifetimeScope();
+
+            builder.RegisterInstance(new RandomData()).As(typeof(RandomData));
 
             ConfigureContainer(builder);
             Container = builder.Build();

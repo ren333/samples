@@ -11,8 +11,10 @@ namespace CaliburnSampleApp.Autofac
     {
         #region Methods
 
-        /// <summary>The load.</summary>
-        /// <param name="builder">The builder.</param>
+        /// <summary>According to convention, register each class that ends with DataModel, ViewModel or 
+        /// View with Autofac
+        /// </summary>
+        /// <param name="builder">The autofac builder instance.</param>
         protected override void Load(ContainerBuilder builder)
         {
             // register data models

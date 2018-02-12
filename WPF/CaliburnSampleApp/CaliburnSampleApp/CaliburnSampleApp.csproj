@@ -80,11 +80,12 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Components\MainViewModel.cs" />
+    <Compile Include="Components\RandomData.cs" />
     <Compile Include="Components\V1DataModel.cs" />
-    <Compile Include="Components\V1View.xaml.cs" >
-		<DependentUpon>V1View.xaml</DependentUpon>
-		<SubType>Code</SubType>
-	</Compile>
+    <Compile Include="Components\V1View.xaml.cs">
+      <DependentUpon>V1View.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Components\V1ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -93,10 +94,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
-    <Page Include="Components\V1View.xaml" >
-	    <Generator>MSBuild:Compile</Generator>
-		<SubType>Designer</SubType>
-	</Page>
+    <Page Include="Components\V1View.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Components\MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
