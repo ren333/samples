@@ -1,4 +1,4 @@
-using CaliburnSampleApp.Main;
+using CaliburnSampleApp.Components;
 
 namespace CaliburnSampleApp.Autofac
 {

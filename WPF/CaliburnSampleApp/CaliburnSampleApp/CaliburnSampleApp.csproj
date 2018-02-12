@@ -74,12 +74,18 @@
     </Compile>
     <Compile Include="Autofac\AppBootstrapper.cs" />
     <Compile Include="Autofac\MainAutofacModule.cs" />
-    <Compile Include="Main\MainDataModel.cs" />
-    <Compile Include="Main\MainView.xaml.cs">
+    <Compile Include="Components\MainDataModel.cs" />
+    <Compile Include="Components\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Main\MainViewModel.cs" />
+    <Compile Include="Components\MainViewModel.cs" />
+    <Compile Include="Components\V1DataModel.cs" />
+    <Compile Include="Components\V1View.xaml.cs" >
+		<DependentUpon>V1View.xaml</DependentUpon>
+		<SubType>Code</SubType>
+	</Compile>
+    <Compile Include="Components\V1ViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -87,7 +93,11 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
-    <Page Include="Main\MainView.xaml">
+    <Page Include="Components\V1View.xaml" >
+	    <Generator>MSBuild:Compile</Generator>
+		<SubType>Designer</SubType>
+	</Page>
+    <Page Include="Components\MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

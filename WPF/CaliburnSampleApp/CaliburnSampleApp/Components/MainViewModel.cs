@@ -1,32 +1,30 @@
-namespace CaliburnSampleApp.Main
+using CaliburnSampleApp.Main;
+
+namespace CaliburnSampleApp.Components
 {
     using System;
     using Caliburn.Micro;
     using System.Windows;
     
-    //using WPFCaliburnApp.Features.F1;
-
     public class MainViewModel : PropertyChangedBase
     {
         private IEventAggregator _eventAggregator;
         private readonly MainDataModel _dataModel;
+        private readonly V1ViewModel _v1ViewModel;
 
-        //public MainViewModel(IEventAggregator eventAggregator, MainDataModel dataModel, F1ViewModel f1View)
-        public MainViewModel(IEventAggregator eventAggregator, MainDataModel dataModel)
+        public MainViewModel(IEventAggregator eventAggregator, MainDataModel dataModel, V1ViewModel v1ViewModel)
         {
             _eventAggregator = eventAggregator;
             _dataModel = dataModel;
             _dataModel.Message = "Initial Message.";
-            //this.f1View = f1View;
+            _v1ViewModel = v1ViewModel;
+        }
+
+        public V1ViewModel V1ViewModel
+        {
+            get { return _v1ViewModel; }
         }
         
-        //private F1ViewModel f1View;
-/*
-        public F1ViewModel F1View
-        {
-            get { return f1View; }
-        }
-*/
         /// <summary>
         /// Get/Set stored message.
         /// </summary>
