@@ -79,6 +79,7 @@
     </Compile>
     <Compile Include="Components\MainViewModel.cs" />
     <Compile Include="Components\RandomData.cs" />
+    <Compile Include="Components\TemplatedDataGridDataModel.cs" />
     <Compile Include="Components\TemplatedDataGridView.xaml.cs">
       <DependentUpon>TemplatedDataGridView.xaml</DependentUpon>
     </Compile>

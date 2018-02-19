@@ -1,28 +1,11 @@
-﻿using System;
-using System.Collections.ObjectModel;
-using System.Windows;
+﻿using System.Collections.ObjectModel;
 using Caliburn.Micro;
 
 namespace CaliburnSampleApp.Components
 {
-    public class MyItem
-    {
-        public string Name { get; set; }
-        public string Address { get; set; }
-        public string Stuff { get; set; }
-        public bool IsSet { get; set; }
-        public string MyImage { get; set; }
-    }
-
     public class TemplatedDataGridViewModel : PropertyChangedBase
     {
-        #region Fields
-        /// <summary>
-        /// The _path collection
-        /// </summary>
-        private readonly ObservableCollection<string> _pathCollection = new ObservableCollection<string>();
-        private readonly ObservableCollection<MyItem> _itemCollection = new ObservableCollection<MyItem>();
-        #endregion
+        private readonly TemplatedDataGridDataModel _dataModel;
 
         #region Properties
         /// <summary>
@@ -31,7 +14,7 @@ namespace CaliburnSampleApp.Components
         /// <value>
         /// The path collection.
         /// </value>
-        public ObservableCollection<string> PathCollection => _pathCollection;
+        public ObservableCollection<string> PathCollection => _dataModel.PathCollection;
 
         /// <summary>
         /// Gets the item collection.
@@ -39,36 +22,12 @@ namespace CaliburnSampleApp.Components
         /// <value>
         /// The item collection.
         /// </value>
-        public ObservableCollection<MyItem> ItemCollection => _itemCollection;
+        public ObservableCollection<MyItem> ItemCollection => _dataModel.ItemCollection;
         #endregion
 
-        public TemplatedDataGridViewModel()
+        public TemplatedDataGridViewModel(TemplatedDataGridDataModel dataModel)
         {
-            LoadData();
-        }
-
-        public void LoadData()
-        {
-            _pathCollection.Add("Images/1.jpg");
-            _pathCollection.Add("Images/2.jpg");
-            _pathCollection.Add("Images/3.jpg");
-            _pathCollection.Add("Images/4.jpg");
-            _pathCollection.Add("Doing the string thing");
-            _pathCollection.Add("Images/5.jpg");
-            _pathCollection.Add("Images/6.jpg");
-            _pathCollection.Add("More stringing");
-
-            try
-            {
-                _itemCollection.Add(new MyItem { Name = "dfsdfsd", Address = "sdfsdfs", Stuff = "moreStuff", IsSet = true, MyImage = _pathCollection[1]});
-                _itemCollection.Add(new MyItem { Name = "dfsd2fsd", Address = "sdfsd3423423432fs", Stuff = "moreStuff1132", IsSet = false, MyImage = _pathCollection[0]});
-                _itemCollection.Add(new MyItem { Name = "dfsdf4sd", Address = "sdf342342sdfs", Stuff = "moreSt3432sssssuff", IsSet = true, MyImage = _pathCollection[2]});
-                _itemCollection.Add(new MyItem { Name = "df222sdfsd", Address = "sdfs22222dfs", Stuff = "moreStuff3253252", IsSet = true, MyImage = _pathCollection[3]});
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("EXception: " + ex.Message + Environment.NewLine + ex.StackTrace);
-            }
+            _dataModel = dataModel;
         }
     }
 }

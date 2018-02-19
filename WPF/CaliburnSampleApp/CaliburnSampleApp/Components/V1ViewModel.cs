@@ -27,7 +27,7 @@ namespace CaliburnSampleApp.Components
         /// </summary>
         public int Id
         {
-            get { return _dataModel.Id; }
+            get => _dataModel.Id;
             set
             {
                 if (_dataModel.Id == value) 
@@ -43,7 +43,7 @@ namespace CaliburnSampleApp.Components
         /// </summary>
         public string Description
         {
-            get { return _dataModel.Description; }
+            get => _dataModel.Description;
             set
             {
                 if (string.Equals(_dataModel.Description, value.Trim(), StringComparison.CurrentCulture)) 
@@ -59,7 +59,7 @@ namespace CaliburnSampleApp.Components
         /// </summary>
         public bool Hidden
         {
-            get { return _dataModel.Hidden; }
+            get => _dataModel.Hidden;
             set
             {
                 if (_dataModel.Hidden == value) 
