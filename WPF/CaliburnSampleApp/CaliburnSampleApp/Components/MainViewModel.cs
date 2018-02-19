@@ -12,14 +12,17 @@ namespace CaliburnSampleApp.Components
     {
         private IEventAggregator _eventAggregator;
         private readonly MainDataModel _dataModel;
-        private readonly V1ViewModel _v1ViewModel;
 
-        public MainViewModel(IEventAggregator eventAggregator, MainDataModel dataModel, V1ViewModel v1ViewModel)
+        public MainViewModel(IEventAggregator eventAggregator, 
+            MainDataModel dataModel, 
+            V1ViewModel v1ViewModel,
+            TemplatedDataGridViewModel templatedDataGridViewModel)
         {
             _eventAggregator = eventAggregator;
             _dataModel = dataModel;
             _dataModel.Message = "Initial Message.";
-            _v1ViewModel = v1ViewModel;
+            V1ViewModel = v1ViewModel;
+            TemplatedDataGridViewModel = templatedDataGridViewModel;
 
             // Initialise value of randomdata to something;
             var rD = AppBootstrapper.Container.Resolve<RandomData>();
@@ -27,17 +30,15 @@ namespace CaliburnSampleApp.Components
             rD.Number = 22;
         }
 
-        public V1ViewModel V1ViewModel
-        {
-            get { return _v1ViewModel; }
-        }
-        
+        public V1ViewModel V1ViewModel { get; }
+        public TemplatedDataGridViewModel TemplatedDataGridViewModel { get; }
+
         /// <summary>
         /// Get/Set stored message.
         /// </summary>
         public string Message
         {
-            get { return _dataModel.Message; }
+            get => _dataModel.Message;
             set
             {
                 if (string.Equals(_dataModel.Message, value.Trim(), StringComparison.CurrentCulture)) 
@@ -53,17 +54,14 @@ namespace CaliburnSampleApp.Components
         /// <summary>
         /// Turns button on/off, depending on the message not being null.
         /// </summary>
-        public bool CanShowMessage
-        {
-            get { return !string.IsNullOrWhiteSpace(Message); }
-        }
+        public bool CanShowMessage => !string.IsNullOrWhiteSpace(Message);
 
         /// <summary>
         /// Display the message in a messageBox.
         /// </summary>
         public void ShowMessage()
         {
-            MessageBox.Show(string.Format("Message given: {0}!", Message));
+            MessageBox.Show($"Message given: {Message}!");
         }
     }
 }

@@ -50,9 +50,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
-      <HintPath>..\packages\Expression.Blend.Sdk.1.0.2\lib\net45\System.Windows.Interactivity.dll</HintPath>
-    </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35">
       <HintPath>..\packages\Caliburn.Micro.3.2.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
     </Reference>
@@ -81,12 +79,17 @@
     </Compile>
     <Compile Include="Components\MainViewModel.cs" />
     <Compile Include="Components\RandomData.cs" />
+    <Compile Include="Components\TemplatedDataGridView.xaml.cs">
+      <DependentUpon>TemplatedDataGridView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\TemplatedDataGridViewModel.cs" />
     <Compile Include="Components\V1DataModel.cs" />
     <Compile Include="Components\V1View.xaml.cs">
       <DependentUpon>V1View.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Components\V1ViewModel.cs" />
+    <Compile Include="Converters\RelativeToAbsolutePathConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -94,6 +97,16 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
+    <Resource Include="Images\1.jpg" />
+    <Resource Include="Images\2.jpg" />
+    <Resource Include="Images\3.jpg" />
+    <Resource Include="Images\4.jpg" />
+    <Resource Include="Images\5.jpg" />
+    <Resource Include="Images\6.jpg" />
+    <Page Include="Components\TemplatedDataGridView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Components\V1View.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -102,11 +115,19 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Resources\CommonResources.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Commands" />
+    <Folder Include="Commands\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>XCOPY "$(ProjectDir)\Images" "$(TargetDir)\Images\" /S /Y</PostBuildEvent>
+  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

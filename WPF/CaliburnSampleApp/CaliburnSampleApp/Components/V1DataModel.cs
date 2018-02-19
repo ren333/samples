@@ -1,5 +1,3 @@
-using System;
-
 namespace CaliburnSampleApp.Components
 {
     public class V1DataModel
