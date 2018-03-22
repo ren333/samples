@@ -1,4 +1,4 @@
-namespace CaliburnSampleApp.Components
+namespace CaliburnSampleApp.Components.Views
 {
     /// <summary>
     /// Interaction logic for MainView.xaml (UserControl).

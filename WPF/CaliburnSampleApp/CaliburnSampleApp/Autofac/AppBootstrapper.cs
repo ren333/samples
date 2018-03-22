@@ -1,4 +1,5 @@
 using CaliburnSampleApp.Components;
+using CaliburnSampleApp.Components.ViewModels;
 
 namespace CaliburnSampleApp.Autofac
 {
@@ -9,12 +10,14 @@ namespace CaliburnSampleApp.Autofac
 
     using global::Autofac;
 
+    /// <inheritdoc />
     /// <summary>The app bootstrapper.</summary>
     public class AppBootstrapper : BootstrapperBase
     {
         #region Constructors and Destructors
 
-        /// <summary> Initializes a new instance of the <see cref="AppBootstrapper" /> class. </summary>
+        /// <inheritdoc />
+        /// <summary> Initializes a new instance of the <see cref="T:CaliburnSampleApp.Autofac.AppBootstrapper" /> class. </summary>
         public AppBootstrapper()
         {
             Initialize();

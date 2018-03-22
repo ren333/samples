@@ -1,4 +1,4 @@
-/WixWpfApplication/WixWpfApplication/obj
-/WixWpfApplication/WixWpfApplication/bin
-/WixWpfApplication/WixWpfApplication.v12.suo
-/WixWpfApplication/WixWpfApplication.sln.GhostDoc.xml
+**/obj
+**/bin
+**/.vs
+**/.idea

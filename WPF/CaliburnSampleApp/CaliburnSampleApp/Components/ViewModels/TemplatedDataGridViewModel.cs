@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using Caliburn.Micro;
 
-namespace CaliburnSampleApp.Components
+namespace CaliburnSampleApp.Components.ViewModels
 {
     public class TemplatedDataGridViewModel : PropertyChangedBase
     {

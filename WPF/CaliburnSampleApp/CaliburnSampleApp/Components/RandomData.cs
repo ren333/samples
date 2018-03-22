@@ -2,7 +2,9 @@
 {
     public class RandomData
     {
-        public int Number { get; set; }
+        #region Properties
+        public int Id { get; set; }
         public string Name { get; set; }
+        #endregion
     }
 }

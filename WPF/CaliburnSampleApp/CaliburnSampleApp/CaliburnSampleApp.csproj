@@ -72,24 +72,24 @@
     </Compile>
     <Compile Include="Autofac\AppBootstrapper.cs" />
     <Compile Include="Autofac\MainAutofacModule.cs" />
-    <Compile Include="Components\MainDataModel.cs" />
-    <Compile Include="Components\MainView.xaml.cs">
+    <Compile Include="Components\DataModels\MainDataModel.cs" />
+    <Compile Include="Components\Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Components\MainViewModel.cs" />
+    <Compile Include="Components\ViewModels\MainViewModel.cs" />
     <Compile Include="Components\RandomData.cs" />
-    <Compile Include="Components\TemplatedDataGridDataModel.cs" />
-    <Compile Include="Components\TemplatedDataGridView.xaml.cs">
+    <Compile Include="Components\DataModels\TemplatedDataGridDataModel.cs" />
+    <Compile Include="Components\Views\TemplatedDataGridView.xaml.cs">
       <DependentUpon>TemplatedDataGridView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Components\TemplatedDataGridViewModel.cs" />
-    <Compile Include="Components\V1DataModel.cs" />
-    <Compile Include="Components\V1View.xaml.cs">
+    <Compile Include="Components\ViewModels\TemplatedDataGridViewModel.cs" />
+    <Compile Include="Components\DataModels\V1DataModel.cs" />
+    <Compile Include="Components\Views\V1View.xaml.cs">
       <DependentUpon>V1View.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Components\V1ViewModel.cs" />
+    <Compile Include="Components\ViewModels\V1ViewModel.cs" />
     <Compile Include="Converters\RelativeToAbsolutePathConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -104,15 +104,15 @@
     <Resource Include="Images\4.jpg" />
     <Resource Include="Images\5.jpg" />
     <Resource Include="Images\6.jpg" />
-    <Page Include="Components\TemplatedDataGridView.xaml">
+    <Page Include="Components\Views\TemplatedDataGridView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Components\V1View.xaml">
+    <Page Include="Components\Views\V1View.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Page Include="Components\MainView.xaml">
+    <Page Include="Components\Views\MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
