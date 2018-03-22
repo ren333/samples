@@ -1,3 +1,4 @@
+using System.Dynamic;
 using CaliburnSampleApp.Components;
 using CaliburnSampleApp.Components.ViewModels;
 
@@ -25,7 +26,7 @@ namespace CaliburnSampleApp.Autofac
 
         #endregion
 
-        #region Public Properties
+        #region Properties
 
         /// <summary> Gets the IoC container. </summary>
         public static IContainer Container { get; private set; }
@@ -40,6 +41,7 @@ namespace CaliburnSampleApp.Autofac
 
         #region Methods
 
+        /// <inheritdoc />
         /// <summary>Do not override unless you plan to full replace the logic. This is how the framework retrieves services from the Autofac container.</summary>
         /// <param name="instance">The instance to perform injection on.</param>
         protected override void BuildUp(object instance)
@@ -47,6 +49,7 @@ namespace CaliburnSampleApp.Autofac
             Container.InjectProperties(instance);
         }
 
+        /// <inheritdoc />
         /// <summary>Override to configure the framework and setup your IoC container.</summary>
         protected override void Configure()
         {
@@ -103,7 +106,7 @@ namespace CaliburnSampleApp.Autofac
                 }
             }
 
-            throw new Exception(string.Format("Could not locate any instances of contract {0}.", key ?? service.Name));
+            throw new Exception($"Could not locate any instances of contract {key ?? service.Name}.");
         }
 
         /// <summary>Override this to add custom behavior to execute after the application starts.</summary>

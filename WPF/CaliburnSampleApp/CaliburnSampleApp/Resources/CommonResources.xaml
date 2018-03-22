@@ -22,6 +22,8 @@
         <Setter Property="AutoGenerateColumns" Value="False"/>
         <Setter Property="AlternationCount" Value="2"/>
         <Setter Property="AlternatingRowBackground" Value="AntiqueWhite"/>
+        <!-- Remove last empty item from the grid, especially when using checkboxes -->
+        <Setter Property="CanUserAddRows" Value="False"/>
     </Style>
 
     <!-- Region DataTemplateSelectors -->

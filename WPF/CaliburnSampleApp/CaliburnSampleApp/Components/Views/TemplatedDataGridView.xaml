@@ -6,16 +6,6 @@
              mc:Ignorable="d" 
              d:DesignHeight="300" d:DesignWidth="300">
     
-    <!-- Region Resource Dictionary -->
-    <UserControl.Resources>
-        <ResourceDictionary>
-            <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="../../Resources/CommonResources.xaml"/>
-            </ResourceDictionary.MergedDictionaries>
-        </ResourceDictionary>
-    </UserControl.Resources>
-    <!-- Endregion -->
-
     <Grid>
         <DataGrid ItemsSource="{Binding ItemCollection}" Style="{StaticResource GeneralDataGridStyle}">
             <DataGrid.Columns>

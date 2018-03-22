@@ -6,14 +6,23 @@
     <!-- 
         ** Must install NuGet package: Expression.Blend.Sdk for System.Windows.Interactivity. 
         ** This bootstrapper is responsible for Autofac registration and serving of pages.
+        **
+        ** ==> Also make sure that all resource dictionaries (global to all Views) are declared before
+        **     Autofac and Caliburn.
     -->
     
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
+                
+                <!-- Common Resources for all Views, declare before Autofac/Caliburn for good measure. -->
+                <ResourceDictionary Source="Resources/CommonResources.xaml"/>
+                
+                <!-- Caliburn/Autofac bootstrapper -->
                 <ResourceDictionary>
-                    <autofac:AppBootstrapper x:Key="bootstrapper" />
+                    <autofac:AppBootstrapper x:Key="Bootstrapper" />
                 </ResourceDictionary>
+
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

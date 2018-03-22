@@ -98,6 +98,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App.config" />
+    <Content Include="Images\mtb.png" />
     <Resource Include="Images\1.jpg" />
     <Resource Include="Images\2.jpg" />
     <Resource Include="Images\3.jpg" />
