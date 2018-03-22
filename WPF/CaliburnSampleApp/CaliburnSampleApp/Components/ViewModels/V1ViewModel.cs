@@ -2,8 +2,9 @@ using Caliburn.Micro;
 using System;
 using Autofac;
 using CaliburnSampleApp.Autofac;
+using CaliburnSampleApp.Components.DataModels;
 
-namespace CaliburnSampleApp.Components
+namespace CaliburnSampleApp.Components.ViewModels
 {
     /// <summary>
     /// Example viewmode for demonstrating Caliburn binding.

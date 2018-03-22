@@ -1,5 +1,6 @@
 using Autofac;
 using CaliburnSampleApp.Autofac;
+using CaliburnSampleApp.Components.DataModels;
 
 namespace CaliburnSampleApp.Components.ViewModels
 {

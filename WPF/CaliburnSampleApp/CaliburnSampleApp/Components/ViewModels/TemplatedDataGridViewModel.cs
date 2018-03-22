@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using Caliburn.Micro;
+using CaliburnSampleApp.Components.DataModels;
 
 namespace CaliburnSampleApp.Components.ViewModels
 {

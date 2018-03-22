@@ -1,4 +1,4 @@
-namespace CaliburnSampleApp.Components
+namespace CaliburnSampleApp.Components.DataModels
 {
     public class V1DataModel
     {

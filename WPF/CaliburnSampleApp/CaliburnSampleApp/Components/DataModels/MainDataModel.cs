@@ -1,4 +1,4 @@
-namespace CaliburnSampleApp.Components
+namespace CaliburnSampleApp.Components.DataModels
 {
     /// <summary>
     /// Data Model to store values for the Main View Model.
