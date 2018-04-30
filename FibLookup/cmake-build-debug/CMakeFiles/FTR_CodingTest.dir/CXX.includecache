@@ -1,0 +1,42 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ren648/Workspace/CodeExamples/FTR_CodingTest/FrequencyTicker.cpp
+fstream
+-
+sstream
+-
+FrequencyTicker.h
+/home/ren648/Workspace/CodeExamples/FTR_CodingTest/FrequencyTicker.h
+
+/home/ren648/Workspace/CodeExamples/FTR_CodingTest/FrequencyTicker.h
+iostream
+-
+thread
+-
+chrono
+-
+map
+-
+algorithm
+-
+vector
+-
+cctype
+-
+iterator
+-
+set
+-
+
+/home/ren648/Workspace/CodeExamples/FTR_CodingTest/main.cpp
+iostream
+-
+FrequencyTicker.h
+/home/ren648/Workspace/CodeExamples/FTR_CodingTest/FrequencyTicker.h
+

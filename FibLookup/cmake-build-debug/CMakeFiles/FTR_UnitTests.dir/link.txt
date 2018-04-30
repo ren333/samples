@@ -1,0 +1,1 @@
+/usr/bin/c++  -pthread -g   CMakeFiles/FTR_UnitTests.dir/FTR_CodingTest_UnitTests.cpp.o CMakeFiles/FTR_UnitTests.dir/FrequencyTicker.cpp.o  -o FTR_UnitTests 
