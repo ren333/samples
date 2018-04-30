@@ -5,3 +5,5 @@ All sorts of samples.
 * WPF - Caliburn Micro and Autofac example usage.
 * WPF - Templating of DataGrid.
 * WPF - Wix Application.
+* FibLookup - Prompt user for numers, with fibonacci lookup table and timer thread.
+
