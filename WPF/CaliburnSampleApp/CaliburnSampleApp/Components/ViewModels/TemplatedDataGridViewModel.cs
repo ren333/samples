@@ -6,7 +6,7 @@ namespace CaliburnSampleApp.Components.ViewModels
 {
     public class TemplatedDataGridViewModel : PropertyChangedBase
     {
-        private readonly TemplatedDataGridDataModel _dataModel;
+        private readonly TemplatedDataGridDataModel dataModel;
 
         #region Properties
         /// <summary>
@@ -15,7 +15,7 @@ namespace CaliburnSampleApp.Components.ViewModels
         /// <value>
         /// The path collection.
         /// </value>
-        public ObservableCollection<string> PathCollection => _dataModel.PathCollection;
+        public ObservableCollection<string> PathCollection => this.dataModel.PathCollection;
 
         /// <summary>
         /// Gets the item collection.
@@ -23,12 +23,12 @@ namespace CaliburnSampleApp.Components.ViewModels
         /// <value>
         /// The item collection.
         /// </value>
-        public ObservableCollection<MyItem> ItemCollection => _dataModel.ItemCollection;
+        public ObservableCollection<MyItem> ItemCollection => this.dataModel.ItemCollection;
         #endregion
 
         public TemplatedDataGridViewModel(TemplatedDataGridDataModel dataModel)
         {
-            _dataModel = dataModel;
+            this.dataModel = dataModel;
         }
     }
 }

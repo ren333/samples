@@ -18,14 +18,8 @@
     -->
     
     <TabControl>
-        <!-- Region TabItem Templated DataGrid -->
-        <TabItem Header="Templated DataGrid">
-            <ContentControl x:Name="TemplatedDataGridViewModel"/>
-        </TabItem>
-        <!-- Endregion -->
-
         <!-- Region TabItem V1VM -->
-        <TabItem Header="V1 View Model">
+        <TabItem Header="Sample View Model">
             <Grid>
                 <!-- Region Definition -->
                 <Grid.RowDefinitions>
@@ -44,9 +38,16 @@
                 </StackPanel>
 
                 <!-- Use injected ViewModel to display entire UserControl -->
-                <ContentControl Grid.Row="1" x:Name="V1ViewModel" />
+                <ContentControl Grid.Row="1" x:Name="SampleViewModel" />
             </Grid>
         </TabItem>
+        <!-- Endregion -->
+        
+        <!-- Region TabItem Template Examples -->
+        <TabItem Header="Template Examples">
+            <ContentControl x:Name="TemplateExamplesViewModel"/>
+        </TabItem>
+        
         <!-- Endregion -->
 
     </TabControl>

@@ -73,6 +73,8 @@
     <Compile Include="Autofac\AppBootstrapper.cs" />
     <Compile Include="Autofac\MainAutofacModule.cs" />
     <Compile Include="Components\DataModels\MainDataModel.cs" />
+    <Compile Include="Components\DataModels\MyItem.cs" />
+    <Compile Include="Components\ViewModels\TemplateExamplesViewModel.cs" />
     <Compile Include="Components\Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -84,14 +86,19 @@
       <DependentUpon>TemplatedDataGridView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Components\ViewModels\TemplatedDataGridViewModel.cs" />
-    <Compile Include="Components\DataModels\V1DataModel.cs" />
-    <Compile Include="Components\Views\V1View.xaml.cs">
-      <DependentUpon>V1View.xaml</DependentUpon>
+    <Compile Include="Components\DataModels\SampleDataModel.cs" />
+    <Compile Include="Components\Views\TemplateExamplesView.xaml.cs">
+      <DependentUpon>TemplateExamplesView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Components\Views\SampleView.xaml.cs">
+      <DependentUpon>SampleView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Components\ViewModels\V1ViewModel.cs" />
+    <Compile Include="Components\ViewModels\SampleViewModel.cs" />
     <Compile Include="Converters\RelativeToAbsolutePathConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TemplateSelectors\DataGridTemplateSelector.cs" />
+    <Compile Include="TemplateSelectors\ImageStringTemplateSelector.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
@@ -109,7 +116,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Components\Views\V1View.xaml">
+    <Page Include="Components\Views\TemplateExamplesView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Components\Views\SampleView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>

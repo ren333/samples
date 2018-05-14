@@ -4,15 +4,6 @@ using System.Windows;
 
 namespace CaliburnSampleApp.Components.DataModels
 {
-    public class MyItem
-    {
-        public string Name { get; set; }
-        public string Address { get; set; }
-        public string Stuff { get; set; }
-        public bool IsSet { get; set; }
-        public string MyImage { get; set; }
-    }
-
     public class TemplatedDataGridDataModel
     {
         #region Fields
@@ -59,10 +50,10 @@ namespace CaliburnSampleApp.Components.DataModels
 
             try
             {
-                _itemCollection.Add(new MyItem { Name = "dfsdfsd", Address = "sdfsdfs", Stuff = "moreStuff", IsSet = true, MyImage = _pathCollection[1] });
-                _itemCollection.Add(new MyItem { Name = "dfsd2fsd", Address = "sdfsd3423423432fs", Stuff = "moreStuff1132", IsSet = false, MyImage = _pathCollection[0] });
-                _itemCollection.Add(new MyItem { Name = "dfsdf4sd", Address = "sdf342342sdfs", Stuff = "moreSt3432sssssuff", IsSet = true, MyImage = _pathCollection[2] });
-                _itemCollection.Add(new MyItem { Name = "df222sdfsd", Address = "sdfs22222dfs", Stuff = "moreStuff3253252", IsSet = true, MyImage = _pathCollection[3] });
+                _itemCollection.Add(new MyItem { Name = "dfsdfsd", Address = "sdfsdfs", Stuff = "moreStuff", IsStuff = true, MyImage = _pathCollection[1] });
+                _itemCollection.Add(new MyItem { Name = "dfsd2fsd", Address = "sdfsd3423423432fs", Stuff = "moreStuff1132", IsStuff = false, MyImage = _pathCollection[0] });
+                _itemCollection.Add(new MyItem { Name = "dfsdf4sd", Address = "sdf342342sdfs", Stuff = "moreSt3432sssssuff", IsStuff = true, MyImage = _pathCollection[2] });
+                _itemCollection.Add(new MyItem { Name = "df222sdfsd", Address = "sdfs22222dfs", Stuff = "moreStuff3253252", IsStuff = true, MyImage = _pathCollection[3] });
             }
             catch (Exception ex)
             {

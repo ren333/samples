@@ -11,26 +11,26 @@ namespace CaliburnSampleApp.Components.ViewModels
     public class MainViewModel : PropertyChangedBase
     {
         #region Fields
-        private IEventAggregator _eventAggregator;
-        private readonly MainDataModel _dataModel;
+        private IEventAggregator eventAggregator;
+        private readonly MainDataModel dataModel;
         #endregion
 
         #region Properties
-        public V1ViewModel V1ViewModel { get; }
-        public TemplatedDataGridViewModel TemplatedDataGridViewModel { get; }
+        public SampleViewModel SampleViewModel { get; }
+        public TemplateExamplesViewModel TemplateExamplesViewModel { get; }
 
         /// <summary>
         /// Get/Set stored message.
         /// </summary>
         public string Message
         {
-            get => _dataModel.Message;
+            get => dataModel.Message;
             set
             {
-                if (string.Equals(_dataModel.Message, value.Trim(), StringComparison.CurrentCulture))
+                if (string.Equals(this.dataModel.Message, value.Trim(), StringComparison.CurrentCulture))
                     return;
 
-                _dataModel.Message = value;
+                dataModel.Message = value;
 
                 NotifyOfPropertyChange(() => Message); // Notify the message string.
                 NotifyOfPropertyChange(() => CanShowMessage); // Toggle visibility of the button. 
@@ -43,18 +43,20 @@ namespace CaliburnSampleApp.Components.ViewModels
         public bool CanShowMessage => !string.IsNullOrWhiteSpace(Message);
         #endregion
 
-        public MainViewModel(IEventAggregator eventAggregator, 
+        public MainViewModel(
+            IEventAggregator eventAggregator, 
             MainDataModel dataModel, 
-            V1ViewModel v1ViewModel,
-            TemplatedDataGridViewModel templatedDataGridViewModel)
+            SampleViewModel sampleViewModel,
+            TemplatedDataGridViewModel templatedDataGridViewModel,
+            TemplateExamplesViewModel templateExamplesViewModel)
         {
-            _eventAggregator = eventAggregator;
+            this.eventAggregator = eventAggregator;
 
-            _dataModel = dataModel;
-            _dataModel.Message = "Initial Message.";
+            this.dataModel = dataModel;
+            this.dataModel.Message = "Initial Message.";
 
-            V1ViewModel = v1ViewModel;
-            TemplatedDataGridViewModel = templatedDataGridViewModel;
+            SampleViewModel = sampleViewModel;
+            TemplateExamplesViewModel = templateExamplesViewModel;
 
             // Resolve RandomData object from Autofac and initialise value.
             var rD = AppBootstrapper.Container.Resolve<RandomData>();

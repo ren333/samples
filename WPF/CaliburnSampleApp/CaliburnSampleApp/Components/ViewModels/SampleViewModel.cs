@@ -9,11 +9,11 @@ namespace CaliburnSampleApp.Components.ViewModels
     /// <summary>
     /// Example viewmode for demonstrating Caliburn binding.
     /// </summary>
-    public class V1ViewModel : PropertyChangedBase
+    public class SampleViewModel : PropertyChangedBase
     {
         #region Fields
-        private readonly V1DataModel _dataModel;
-        private IEventAggregator _eventAggregator;
+        private readonly SampleDataModel dataModel;
+        private IEventAggregator eventAggregator;
         #endregion
 
         #region Properties
@@ -22,13 +22,13 @@ namespace CaliburnSampleApp.Components.ViewModels
         /// </summary>
         public int Id
         {
-            get => _dataModel.Id;
+            get => this.dataModel.Id;
             set
             {
-                if (_dataModel.Id == value)
+                if (this.dataModel.Id == value)
                     return;
 
-                _dataModel.Id = value;
+                this.dataModel.Id = value;
                 NotifyOfPropertyChange(() => Id);
             }
         }
@@ -38,13 +38,13 @@ namespace CaliburnSampleApp.Components.ViewModels
         /// </summary>
         public string Description
         {
-            get => _dataModel.Description;
+            get => this.dataModel.Description;
             set
             {
-                if (string.Equals(_dataModel.Description, value.Trim(), StringComparison.CurrentCulture))
+                if (string.Equals(this.dataModel.Description, value.Trim(), StringComparison.CurrentCulture))
                     return;
 
-                _dataModel.Description = value;
+                this.dataModel.Description = value;
                 NotifyOfPropertyChange(() => Description);
             }
         }
@@ -54,25 +54,25 @@ namespace CaliburnSampleApp.Components.ViewModels
         /// </summary>
         public bool IsEnabled
         {
-            get => _dataModel.IsEnabled;
+            get => this.dataModel.IsEnabled;
             set
             {
-                if (_dataModel.IsEnabled == value)
+                if (this.dataModel.IsEnabled == value)
                     return;
 
-                _dataModel.IsEnabled = value;
+                this.dataModel.IsEnabled = value;
                 NotifyOfPropertyChange(() => IsEnabled);
             }
         }
         #endregion
 
-        public V1ViewModel(IEventAggregator eventAggregator, V1DataModel dataModel)
+        public SampleViewModel(IEventAggregator eventAggregator, SampleDataModel dataModel)
         {
-            _dataModel = dataModel;
-            _eventAggregator = eventAggregator;
+            this.dataModel = dataModel;
+            this.eventAggregator = eventAggregator;
 
             // Resolve RandomData class from Autofac container and assign it to the DataModel.
-            _dataModel.RandomData = AppBootstrapper.Container.Resolve<RandomData>();
+            this.dataModel.RandomData = AppBootstrapper.Container.Resolve<RandomData>();
         }
     }
 }

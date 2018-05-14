@@ -3,9 +3,9 @@ namespace CaliburnSampleApp.Components.Views
     /// <summary>
     /// Interaction logic for V1View.xaml
     /// </summary>
-    public partial class V1View
+    public partial class SampleView
     {
-        public V1View()
+        public SampleView()
         {
             InitializeComponent();
         }

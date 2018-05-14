@@ -1,6 +1,6 @@
 namespace CaliburnSampleApp.Components.DataModels
 {
-    public class V1DataModel
+    public class SampleDataModel
     {
         #region Properties
 
@@ -20,7 +20,7 @@ namespace CaliburnSampleApp.Components.DataModels
         public bool IsEnabled { get; set; }
         #endregion
 
-        public V1DataModel()
+        public SampleDataModel()
         {
             IsEnabled = true;
         }
