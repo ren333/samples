@@ -1,9 +1,0 @@
-﻿<Window x:Class="LayoutContainersExample.InkCanvasWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="InkCanvasWindow" Height="300" Width="300">
-	
-	<InkCanvas Name="inkCanvas" Background="LightYellow" EditingMode="Ink" Width="280" Height="280">
-		<Image Source="_1152500924696.jpg" InkCanvas.Top="10" InkCanvas.Left="10" Width="260" Height="260"></Image>
-	</InkCanvas>
-</Window>
