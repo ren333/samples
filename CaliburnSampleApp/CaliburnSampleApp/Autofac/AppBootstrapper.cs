@@ -1,4 +1,3 @@
-using System.Dynamic;
 using CaliburnSampleApp.Components;
 using CaliburnSampleApp.Components.ViewModels;
 
@@ -114,7 +113,7 @@ namespace CaliburnSampleApp.Autofac
         /// <param name="e">The args.</param>
         protected override void OnStartup(object sender, StartupEventArgs e)
         {
-            DisplayRootViewFor<MainViewModel>();
+            DisplayRootViewForAsync<MainViewModel>();
         }
 
         /// <summary>Checks whether the specified assembly should be loaded for Caliburn and Autofac.</summary>
