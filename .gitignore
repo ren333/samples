@@ -1,5 +1,13 @@
-**/obj
-**/bin
 **/.vs
 **/.idea
 **/*.user
+**/*.pyc
+**/*bin
+**/*obj
+**/*.log
+**/docker/data
+**/*Debug
+**/*Release
+**/*packages
+**/*node_modules
+**/package-lock.json
