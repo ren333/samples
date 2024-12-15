@@ -18,7 +18,7 @@
         
         <!-- Region Content -->
         <ToolBar Grid.Row="0">
-            <Button Content="Msg" Click="MsgBtnClick"/>
+            <Button Content="Msg" Command="{Binding ShowMessageCommand}"/>
         </ToolBar>
         
         <TextBox Grid.Row="1" Text="Hello!"/>

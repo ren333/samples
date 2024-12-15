@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using CSharpFeaturesDemo.ViewModels;
+using System.Windows;
 
 namespace CSharpFeaturesDemo.Views
 {
@@ -7,9 +8,10 @@ namespace CSharpFeaturesDemo.Views
     /// </summary>
     public partial class MainView : Window
     {
-        public MainView()
+        public MainView(MainViewModel viewModel)
         {
             InitializeComponent();
+            DataContext = viewModel;
         }
 
         private void MsgBtnClick(object sender, RoutedEventArgs e)

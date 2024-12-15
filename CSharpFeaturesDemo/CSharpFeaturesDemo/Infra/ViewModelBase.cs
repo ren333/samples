@@ -1,4 +1,4 @@
-﻿namespace CSharpFeaturesDemo.ViewModels
+﻿namespace CSharpFeaturesDemo.Infra
 {
     using System.ComponentModel;
     using System.Runtime.CompilerServices;

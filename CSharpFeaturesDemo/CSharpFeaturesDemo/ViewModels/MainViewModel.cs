@@ -1,5 +1,6 @@
 ﻿using Autofac;
 using CSharpFeaturesDemo.Infra;
+using EventAggregator.Interfaces;
 using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Input;
@@ -7,31 +8,32 @@ using WpfPluginInterface;
 
 namespace CSharpFeaturesDemo.ViewModels
 {
-    public class MainViewModel : ViewModelBase, EventAggregator.Interfaces.IHandle<string>
+    public class MainViewModel : ViewModelBase, IHandle<string>
     {
         #region Properties
-        private readonly EventAggregator.Interfaces.IEventAggregator _eventAggregator;
+        private readonly IEventAggregator _eventAggregator;
         private readonly ILifetimeScope _lifetimeScope;
 
         public ObservableCollection<object> LoadedViews { get; } = [];
         public ObservableCollection<IWpfPlugin> Plugins { get; }
         public ICommand LoadPluginCommand { get; }
+
+        public ICommand ShowMessageCommand { get; }
         #endregion
 
-        public MainViewModel(EventAggregator.Interfaces.IEventAggregator eventAggregator, ILifetimeScope lifetimeScope)
+        public MainViewModel(IEventAggregator eventAggregator, ILifetimeScope lifetimeScope)
         {
             _eventAggregator = eventAggregator;
             _lifetimeScope = lifetimeScope;
-
             _eventAggregator.Subscribe(this);
 
             Plugins = [];
             LoadPluginCommand = new RelayCommand(LoadPlugin);
 
             foreach (var plugin in _lifetimeScope.Resolve<IEnumerable<IWpfPlugin>>())
-            {
                 Plugins.Add(plugin);
-            }
+
+            ShowMessageCommand = new RelayCommand(_ => OnMessageButtonClick());
         }
 
         private void LoadPlugin(object parameter)
@@ -46,6 +48,11 @@ namespace CSharpFeaturesDemo.ViewModels
         public void Handle(string message)
         {
             MessageBox.Show(message);
+        }
+
+        private void OnMessageButtonClick()
+        {
+            _eventAggregator.Publish("Hello from the toolbar!"); // Display MessageBox.
         }
     }
 }
