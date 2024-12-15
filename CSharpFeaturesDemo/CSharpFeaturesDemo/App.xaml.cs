@@ -1,10 +1,7 @@
 ﻿using Autofac;
-using Caliburn.Micro;
 using CSharpFeaturesDemo.Infra;
 using CSharpFeaturesDemo.ViewModels;
 using CSharpFeaturesDemo.Views;
-using EventAggregator;
-using EventAggregator.Interfaces;
 using System.Data;
 using System.IO;
 using System.Reflection;

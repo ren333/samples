@@ -2,6 +2,7 @@
 
 namespace CSharpFeaturesDemo.Infra
 {
+    using System.Windows;
     using System.Windows.Input;
 
     public class RelayCommand : ICommand
@@ -14,18 +15,21 @@ namespace CSharpFeaturesDemo.Infra
         #endregion
 
         #region Methods
-        public RelayCommand(Action<object> execute, Func<object, bool> canExecute = null)
+        public RelayCommand(Action<object> execute, Func<object, bool>? canExecute = null)
         {
             _execute = execute ?? throw new ArgumentNullException(nameof(execute));
-            _canExecute = canExecute;
+            _canExecute = canExecute ?? throw new ArgumentNullException(nameof(canExecute));
         }
 
-        public bool CanExecute(object parameter)
+        public bool CanExecute(object? parameter)
         {
+            if (parameter == null)
+                return false;
+
             return _canExecute == null || _canExecute(parameter);
         }
 
-        public void Execute(object parameter)
+        public void Execute(object? parameter)
         {
             _execute(parameter);
         }

@@ -4,8 +4,11 @@ namespace EventAggregator
 {
     public class EventAggregator : IEventAggregator
     {
-        private readonly List<WeakReference> _subscribers = new List<WeakReference>();
+        #region Properties
+        private readonly List<WeakReference> _subscribers = [];
+        #endregion
 
+        #region Methods
         public void Publish<TEvent>(TEvent eventToPublish)
         {
             foreach (var weakSubscriber in _subscribers.ToList())
@@ -25,6 +28,7 @@ namespace EventAggregator
         {
             _subscribers.Add(new WeakReference(subscriber));
         }
+        #endregion
     }
 
 }
