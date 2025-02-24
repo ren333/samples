@@ -1,4 +1,0 @@
-/home/ren648/Workspace/CodeExamples/FTR_CodingTest/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/ren648/Workspace/CodeExamples/FTR_CodingTest/cmake-build-debug/CMakeFiles/rebuild_cache.dir
-/home/ren648/Workspace/CodeExamples/FTR_CodingTest/cmake-build-debug/CMakeFiles/FTR_UnitTests.dir
-/home/ren648/Workspace/CodeExamples/FTR_CodingTest/cmake-build-debug/CMakeFiles/FTR_CodingTest.dir
