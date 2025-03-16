@@ -1,0 +1,50 @@
+# *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+# Create Netbox via docker compose.
+#
+# Notes:
+#   * docker compose -f netbox.yaml [up -d/down]
+#   * netbox: http/13031
+#   * u/p: admin/SUPERUSER_PASSWORD
+# *~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*~*
+#
+services:
+  netbox-postgres:
+    image: postgres:15-alpine
+    container_name: netbox_postgres
+    hostname: netbox-postgres
+    restart: always
+    env_file: postgres.env
+    healthcheck:
+      test: ["CMD", "pg_isready", "-q", "-d", "netbox", "-U", "netbox"]
+      timeout: 45s
+      interval: 10s
+      retries: 10   
+    volumes:
+      - /tmp/netbox/postgres:/var/lib/postgresql/data
+     
+  netbox-redis:
+    image: redis:7-alpine
+    container_name: netbox_redis
+    hostname: netbox-redis
+    restart: always
+    user: 1000:1000
+    command: redis-server
+    healthcheck:
+      test: ["CMD-SHELL", "redis-cli ping || exit 1"]
+    volumes:
+      - /tmp/netbox/redis:/data
+      - ./redis.conf:/usr/local/etc/redis/redis.conf
+      
+  netbox-server:
+    image: lscr.io/linuxserver/netbox:latest
+    container_name: netbox_server
+    hostname: netbox-server
+    restart: always
+    env_file: netbox.env
+    depends_on:
+      - netbox-postgres
+      - netbox-redis
+    ports:
+      - 13031:8000
+    volumes:
+      - /tmp/netbox/config:/config
